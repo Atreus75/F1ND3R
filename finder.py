@@ -54,18 +54,20 @@ class Finder:
     def start_attack(self):
         print(f'\n{Fore.CYAN}[+]{Fore.WHITE} Starting Directory Enumeration:\n Enumerating...')
         wordlist, threads = self.wordlist, self.threads
-        with ThreadPoolExecutor(max_workers=threads) as pool:
-            pool.map(self.directory_enumeration, wordlist)
+        try:
+            with ThreadPoolExecutor(max_workers=threads) as pool: 
+                pool.map(self.directory_enumeration, wordlist)
+        except KeyboardInterrupt:
+            print(f'{Fore.RED}[+]{Fore.WHITE} Keyboard Interrupt. Shutting down all threads...')
+            pool.shutdown(cancel_futures=True)
+            print('Bye bye.. :)')
+            exit()
+        
+            
         
             
 
 
 finder = Finder()
-
-try:
-    finder.start_attack()
-except KeyboardInterrupt:
-    print(f'{Fore.RED}[+]{Fore.WHITE} Press {Fore.RED}CTRL+C{Fore.WHITE} again to exit.')
-    exit()
-
+finder.start_attack()
 print(f'{Fore.CYAN}[+]{Fore.WHITE}Successful enumeration')
