@@ -4,7 +4,7 @@
 
 ```
 python3 finder.py -u [URL] -w [WORDLIST] -t [THREADS] -fc [NEGATIVE RESPONSE CODE]
-Obrigatory arguments: -u, -w
+Required arguments: -u, -w
 ```
 
 ## To do
