@@ -1,4 +1,19 @@
 # F1ND3R
-This is my own web directory/file enumeration tool. Still in development but already working.
+
 ## Usage
-> python finder.py -u [URL] -w [Wordlist] -t [Number of threads to execute. (Default: 10)] -fc [Unwanted HTTP response code. (Default: 404)]
+
+```
+python3 finder.py -u [URL] -w [WORDLIST] -t [THREADS] -fc [NEGATIVE RESPONSE CODE]
+Obrigatory arguments: -u, -w
+```
+
+## To do
+
+1. Add a progress bar during the enumeration.
+2. Make a more beauty and organized presentation of results.
+3. Add more options to custom the requests.
+4. Make it as fast as possible.
+
+
+
+#### By: ***Rodrigo Soares Ferreira***
